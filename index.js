@@ -1,6 +1,4 @@
-import path from "path";
 import express from "express";
-import { fileURLToPath } from "url";
 import session from "express-session";
 import mongoSession from "connect-mongodb-session";
 import { config } from "dotenv";
@@ -21,11 +19,6 @@ const store = new MongoDBStore({
   collection: "sessions",
 });
 
-// Get the __dirname equivalent in ES6
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-// Serve static files from the "uploads" directory
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 

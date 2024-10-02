@@ -1,30 +1,21 @@
 import multer from "multer";
-import path from "path";
+import { extenstions } from "../utils/fileExtenstions.js";
 
-const storage = multer.diskStorage({
-  destination: "./uploads/", // Directory to save uploaded files
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
-  },
-});
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 10 * 1024 * 1024 }, // Max file size 10MB
-  fileFilter: (req, file, cb) => {
-    const filetypes = /jpeg|jpg|png/;
-    const extname = filetypes.test(
-      path.extname(file.originalname).toLowerCase()
-    );
-    const mimetype = filetypes.test(file.mimetype);
-    if (mimetype && extname) {
-      return cb(null, true);
+export const multerHost = ({ allowedExtesions = extenstions.Images }) => {
+  const storage = multer.diskStorage({});
+  function fileFilter(req, file, cb) {
+    if (allowedExtesions.includes(file.mimetype)) {
+      cb(null, true);
     } else {
-      cb("Error: Only images are allowed!");
+      cb(
+        new ApiError(`Invalid file type, only ${allowedExtensions}`, 404),
+        false
+      );
     }
-  },
-});
+  }
 
-export default upload;
+  return multer({
+    storage,
+    fileFilter,
+  });
+};

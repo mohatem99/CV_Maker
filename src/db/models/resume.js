@@ -9,7 +9,10 @@ const resumeSchema = new Schema({
   email: String,
   phoneno: String,
   summary: String,
-  image: String,
+  image: {
+    public_id: String,
+    secure_url: String,
+  },
   experiences: [
     {
       exp_title: String,
