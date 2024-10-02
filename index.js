@@ -1,4 +1,5 @@
 import express from "express";
+import { fileURLToPath } from "url";
 import session from "express-session";
 import mongoSession from "connect-mongodb-session";
 import { config } from "dotenv";
@@ -33,13 +34,13 @@ app.use(
   })
 );
 
-app.use(homRouter);
+app.use("/", homRouter);
 app.use(registerRouter);
 
 app.use(loginRouter);
 app.use(resumeRouter);
 app.use(logoutRouter);
-app.use("*", (req, res) => {
+app.use("*", (req, res, next) => {
   res.render("notFound.ejs");
 });
 
