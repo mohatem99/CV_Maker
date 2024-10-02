@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home Page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="/css/resumepage.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar bg-dark">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="brand-and-toggler">
+                    <a href="/" class="navbar-brand">
+                        <img src="/images/resume-bright.svg" alt="" class="navbar-brand-icon">
+                        <span class="navbar-brand-text">build <span>resume.</span>
+                    </a>
+                    <button type="button" class="navbar-toggler-btn">
+                        <div class="bars">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    <ul class="menuList">
+                        <a href="/"><li>Home</li></a>
+                        <a href="#cv_type"><li>services</li></a>
+                        <a href="#footer"><li>Contact</li></a>
+                      
+                    </ul>
+                  <% if (session?.name) { %>
+                  <div style="display: flex;  justify-content: space-between; width: 100%;">  <h3 style=" color: silver;">
+                        <%= session?.name %>
+                        <span id="login-btn"><a href="/logout"><li>Log Out</li></a></span>
+                    </h3>
+                      </div>
+                   
+        
+                  <% } else { %>
+                    <button id="login-btn"><a href="/login"><li>Login</li></a></button>
+          <% } %>
+                </div>  
+            </div>
+        </div>
+    </nav>
