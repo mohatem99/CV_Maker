@@ -1,5 +1,5 @@
 import express from "express";
-import { fileURLToPath } from "url";
+import path from "path";
 import session from "express-session";
 import mongoSession from "connect-mongodb-session";
 import { config } from "dotenv";
@@ -24,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.set("view engine", "ejs");
+app.set("views", path.join(process.cwd(), "views"));
 
 app.use(
   session({
@@ -34,7 +35,7 @@ app.use(
   })
 );
 
-app.use("/", homRouter);
+app.get("/", homRouter);
 app.use(registerRouter);
 
 app.use(loginRouter);
