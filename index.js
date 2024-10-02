@@ -17,7 +17,7 @@ config();
 const app = express();
 const MongoDBStore = mongoSession(session);
 const store = new MongoDBStore({
-  uri: process.env.DB_URI,
+  uri: process.env.MONGO_ATLAS_URI,
   collection: "sessions",
 });
 
