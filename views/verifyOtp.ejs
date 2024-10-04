@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Recovery</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <style>
+      nav {
+        position: absolute;
+        top: 80px;
+        right: 0;
+      }
+      #navbar {
+        width: 95%;
+      }
+      .code-container {
+        display: flex;
+        gap: 1rem;
+        max-width: 250px;
+        height: 50px;
+      }
+      .code-container input {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+      }
+
+      input::-webkit-inner-spin-button,
+      input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <nav id="navbar">
+        <a href="index.html">
+          <img
+            src="/images/arrow.svg"
+            alt="menu icon"
+            id="menu_icon"
+            width="40px"
+            height="25px"
+        /></a>
+      </nav>
+      <div id="form_container">
+        <h1>Account Recovery</h1>
+        <br /><br />
+        <form
+          action="/handle-verify-otp"
+          method="POST"
+          style="text-align: center"
+        >
+          <label for="email" style="text-align: center">
+            <strong>Enter the code</strong><br /><br />
+            <div class="code-container">
+              <input
+                type="number"
+                name="num"
+                class="btn"
+                id="n1"
+                maxlength="1"
+                max="9"
+                min="0"
+                required
+                onkeyup="if (this.value > 9){this.value = ''; 
+              document.getElementById('error').innerHTML = 'enter a number between 0 and 9';
+              clearError()
+              }"
+              />
+              <input
+                type="number"
+                name="num"
+                class="btn"
+                id="n2"
+                maxlength="1"
+                max="9"
+                min="0"
+                required
+                onkeyup="if (this.value > 9){this.value = ''; 
+            document.getElementById('error').innerHTML = 'enter a number between 0 and 9';
+            clearError()
+            }"
+              />
+              <input
+                type="number"
+                name="num"
+                class="btn"
+                id="n3"
+                maxlength="1"
+                max="9"
+                min="0"
+                required
+                onkeyup="if (this.value > 9){this.value = ''; 
+            document.getElementById('error').innerHTML = 'enter a number between 0 and 9';
+            clearError()
+            }"
+              />
+              <input
+                type="number"
+                name="num"
+                class="btn"
+                id="n4"
+                maxlength="1"
+                max="9"
+                min="0"
+                required
+                onkeyup="if (this.value > 9){this.value = ''; 
+            document.getElementById('error').innerHTML = 'enter a number between 0 and 9';
+            clearError()
+            }"
+              />
+            </div>
+          </label>
+          <span id="error" style="color: red"></span>
+          <input type="submit" value="Submit" id="submit_button" />
+        </form>
+      </div>
+    </div>
+
+    <script>
+      let errorSpan = document.getElementById("error");
+      function clearError() {
+        if (errorSpan.innerHTML === "enter a number between 0 and 9") {
+          const clearing = setTimeout(clear, 3000);
+          function clear() {
+            document.getElementById("error").innerHTML = "";
+          }
+        }
+      }
+
+      //code inputs
+      let submitBtn = document.getElementById("submit_button");
+
+      function getCodeDigits() {
+        let firstDigit = document.getElementById("n1").value;
+        let secondDigit = document.getElementById("n2").value;
+        let thirdDigit = document.getElementById("n3").value;
+        let fourthigit = document.getElementById("n4").value;
+        let digitsList = [];
+        digitsList.push(firstDigit, secondDigit, thirdDigit, fourthigit);
+        return digitsList;
+      }
+
+      submitBtn.addEventListener("click", (event) => {
+        getCodeDigits();
+      });
+    </script>
+  </body>
+</html>

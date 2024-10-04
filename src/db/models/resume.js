@@ -38,6 +38,10 @@ const resumeSchema = new Schema({
     { proj_title: String, proj_link: String, proj_description: String },
   ],
   skills: [{ skill: String }],
+  type: {
+    type: String,
+    enum: ["ats", "brown", "latte"],
+  },
   createdBy: {
     type: Types.ObjectId,
     ref: "User",

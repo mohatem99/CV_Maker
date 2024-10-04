@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="CodeHim">
+  <title>Profile</title>
+  <link rel="stylesheet" href="/css/profile_page.css">
+</head>
+
+<body>
+  <nav>
+    <a href="/" class="navbar-brand">
+      <img src="/images/resume-bright.svg" alt="" class="navbar-brand-icon">
+      <span class="navbar-brand-text">build <span>resume.</span>
+    </a>
+
+    <div class="bars">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+    <ul class="menuList">
+      <a href="/"><li>Home</li></a>
+      <a href="#footer"><li>About</li></a>
+      <a href="#footer"><li>Contact</li></a>
+    </ul>
+  </nav>
+<main class="cd__main">
+  <div class="profile-page">
+    <div class="content" style="border-radius: 1rem">
+      <div class="content__avatar"></div>
+      <h1><%= session?.name %></h1>
+      <span><%= session?.email %></span>
+    </div>
+
+    <div class="content" style="border-radius: 1rem">
+      <h1>Dashboard</h1>
+      
+<% if (resumes.length > 0) { %>
+  <div class="previous_templates">
+    <% for (let index = 0; index < resumes.length; index++) { %>
+      
+      <% if (resumes[index].type == 'ats') { %>
+        <a href="/resume?type=ats">
+          <img src="/images/ATS template.png" alt="ATS Template" />
+        </a>
+      <% } else { %>
+        <a href="/resume?type=ats" class="btn btn-primary text-uppercase">Create ATS Template</a>
+      <% } %>
+      
+      <% if (resumes[index].type == 'latte') { %>
+        <a href="/resume?type=latte">
+          <img src="/images/latte template.jpg" alt="Latte Template" />
+        </a>
+      <% } else { %>
+        <a href="/resume?type=latte" class="btn btn-primary text-uppercase">Create Latte Template</a>
+      <% } %>
+      
+      <% if (resumes[index].type == 'brown') { %>
+        <a href="/resume?type=brown">
+          <img src="/images/cv template 2.png" alt="Brown Template" />
+        </a>
+      <% } else { %>
+        <a href="/resume?type=brown" class="btn btn-primary text-uppercase">Create Brown Template</a>
+      <% } %>
+
+    <% } %>
+  </div>
+<% } %>
+
+    </div>
+  </div>
+</main>
+<%- include('./shared/footer.ejs') %>

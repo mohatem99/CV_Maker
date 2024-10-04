@@ -25,7 +25,7 @@ export const handleLogin = async (req, res, next) => {
     req.session.isLoggedIn = true;
     req.session.userId = user._id;
     req.session.name = user.name;
-
+    req.session.email = user.email;
     res.redirect("/");
   } catch (err) {
     redirect("login");

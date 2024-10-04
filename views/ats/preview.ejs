@@ -1,0 +1,83 @@
+ <section id="preview-sc" class="print_area">
+        <div class="container">
+            <div class="preview-cnt">
+                <div class="preview-cnt-l text-white">
+                    <div class="preview-blk">
+                        <div class="preview-blk-title">
+                            <h3>
+                                <div class="preview-item preview-item-name">
+                                    <span class="preview-item-val fw-6" id="fullname_dsp">First M.last</span>
+                                </div>
+                            </h3>
+                            <div class="preview-item">
+                                <span class="preview-item-val fs-16 ls-1" id="designation_dsp"></span>
+                            </div>
+                        </div>
+
+                        <div class="preview-blk-list">
+                            <div class="preview-item">
+                                <span class="preview-item-val" id="phoneno_dsp"></span>
+                            </div>
+                            <div class="preview-item">
+                                <span class="preview-item-val" id="email_dsp"></span>
+                            </div>
+                            <div class="preview-item">
+                                <span class="preview-item-val" id="address_dsp"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preview-cnt-r bg-white">
+                    <div class="preview-item" ></div>
+                    <span class="preview-item-val" id="summary_dsp"></span>
+
+
+                    <div class="preview-blk" id="experiences">
+                        <div class="preview-blk-title">
+                            <h3>experiences</h3>
+                        </div>
+
+                        <div class="experiences-items preview-blk-list" id="experiences_dsp"></div>
+                    </div>
+                    <button class="experiences-remove-btn remove-btn non_print_area">-</button>
+                    <button class="experiences-add-btn add-btn non_print_area">+</button>
+
+                    <div class="preview-blk" id="projects">
+                        <div class="preview-blk-title">
+                            <h3>projects</h3>
+                        </div>
+                        <div class="projects-items preview-blk-list" id="projects_dsp"></div>
+                    </div>
+                    <button class="projects-remove-btn remove-btn non_print_area">-</button>
+                    <button class="projects-add-btn add-btn non_print_area">+</button>
+
+                    <div class="preview-blk">
+                        <div class="preview-blk-title">
+                            <h3>educations</h3>
+                        </div>
+                        <div class="educations-items preview-blk-list" id="educations_dsp"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="print-btn-sc" style="margin:  0.5rem 0 0.5rem 0;">
+        <div class="container">
+            <button type="button" id="exportPDF" class="print-btn btn btn-primary" onclick="printCV()">Print CV</button>
+        
+         <button
+
+         style="margin-left: 10px;"
+      type="submit"
+      onclick="saveResumeDataAts()"
+      class="print-btn btn btn-primary"
+    >
+      Save
+    </button>
+        
+        </div>
+    </section>

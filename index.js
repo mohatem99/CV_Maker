@@ -11,6 +11,10 @@ import registerRouter from "./src/modules/register/routes.js";
 import loginRouter from "./src/modules/login/routes.js";
 import resumeRouter from "./src/modules/resume/routes.js";
 import logoutRouter from "./src/modules/logout/routes.js";
+
+import forgetRouter from "./src/modules/forgetPassword/routes.js";
+
+import profileRouter from "./src/modules/profile/routes.js";
 config();
 
 const app = express();
@@ -41,6 +45,8 @@ app.use(registerRouter);
 app.use(loginRouter);
 app.use(resumeRouter);
 app.use(logoutRouter);
+app.use(forgetRouter);
+app.use(profileRouter);
 app.use("*", (req, res, next) => {
   res.render("notFound.ejs");
 });
