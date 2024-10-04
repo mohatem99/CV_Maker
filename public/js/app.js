@@ -91,117 +91,117 @@ const getUserInputs = () => {
   let skillElem = document.querySelectorAll(".skill");
 
   // event listeners for form validation
-  firstnameElem.addEventListener("keyup", (e) =>
+  firstnameElem?.addEventListener("keyup", (e) =>
     validateFormData(e.target, validType.TEXT, "First Name")
   );
   if (middlenameElem !== undefined) {
-    middlenameElem.addEventListener("keyup", (e) =>
+    middlenameElem?.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.TEXT_EMP, "Middle Name")
     );
   }
 
-  lastnameElem.addEventListener("keyup", (e) =>
+  lastnameElem?.addEventListener("keyup", (e) =>
     validateFormData(e.target, validType.TEXT, "Last Name")
   );
-  phonenoElem.addEventListener("keyup", (e) =>
+  phonenoElem?.addEventListener("keyup", (e) =>
     validateFormData(e.target, validType.PHONENO, "Phone Number")
   );
-  // emailElem.addEventListener("keyup", (e) =>
-  //   validateFormData(e.target, validType.EMAIL, "Email")
-  // );
-  addressElem.addEventListener("keyup", (e) =>
+  emailElem?.addEventListener("keyup", (e) =>
+    validateFormData(e.target, validType.EMAIL, "Email")
+  );
+  addressElem?.addEventListener("keyup", (e) =>
     validateFormData(e.target, validType.ANY, "Address")
   );
-  designationElem.addEventListener("keyup", (e) =>
+  designationElem?.addEventListener("keyup", (e) =>
     validateFormData(e.target, validType.TEXT, "Designation")
   );
 
-  achievementsTitleElem.forEach((item) =>
+  achievementsTitleElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "Title")
     )
   );
-  achievementsDescriptionElem.forEach((item) =>
+  achievementsDescriptionElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "Description")
     )
   );
-  expTitleElem.forEach((item) =>
+  expTitleElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "Title")
     )
   );
-  expOrganizationElem.forEach((item) =>
+  expOrganizationElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "Organization")
     )
   );
-  expLocationElem.forEach((item) =>
+  expLocationElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "Location")
     )
   );
-  expStartDateElem.forEach((item) =>
+  expStartDateElem?.forEach((item) =>
     item.addEventListener("blur", (e) =>
       validateFormData(e.target, validType.ANY, "End Date")
     )
   );
-  expEndDateElem.forEach((item) =>
+  expEndDateElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "End Date")
     )
   );
-  expDescriptionElem.forEach((item) =>
+  expDescriptionElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "Description")
     )
   );
-  eduSchoolElem.forEach((item) =>
+  eduSchoolElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "School")
     )
   );
-  eduDegreeElem.forEach((item) =>
+  eduDegreeElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "Degree")
     )
   );
-  eduCityElem.forEach((item) =>
+  eduCityElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "City")
     )
   );
-  eduStartDateElem.forEach((item) =>
+  eduStartDateElem?.forEach((item) =>
     item.addEventListener("blur", (e) =>
       validateFormData(e.target, validType.ANY, "Start Date")
     )
   );
-  eduGraduationDateElem.forEach((item) =>
+  eduGraduationDateElem?.forEach((item) =>
     item.addEventListener("blur", (e) =>
       validateFormData(e.target, validType.ANY, "Graduation Date")
     )
   );
-  eduDescriptionElem.forEach((item) =>
+  eduDescriptionElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "Description")
     )
   );
-  projTitleElem.forEach((item) =>
+  projTitleElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "Title")
     )
   );
-  projLinkElem.forEach((item) =>
+  projLinkElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "Link")
     )
   );
-  projDescriptionElem.forEach((item) =>
+  projDescriptionElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "Description")
     )
   );
-  skillElem.forEach((item) =>
+  skillElem?.forEach((item) =>
     item.addEventListener("keyup", (e) =>
       validateFormData(e.target, validType.ANY, "skill")
     )

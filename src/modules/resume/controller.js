@@ -41,7 +41,7 @@ export const handleResume = async (req, res, next) => {
       image_url = { secure_url, public_id };
     }
     await ResumeModel.findOneAndUpdate(
-      { createdBy: req.session.userId },
+      { createdBy: req.session.userId, type },
       {
         $set: {
           ...JSON.parse(cv_details),

@@ -38,47 +38,54 @@
 
     <div class="content" style="border-radius: 1rem">
       <h1>Dashboard</h1>
-      
-<% if (resumes.length > 0) { %>
-  <div class="previous_templates">
-    <% for (let index = 0; index < resumes.length; index++) { %>
-      
-      <% if (resumes[index].type == 'ats') { %>
-        <a href="/resume?type=ats">
-          <img src="/images/ATS template.png" alt="ATS Template" />
-        </a>
-      <% } else { %>
-        <a href="/resume?type=ats" class="btn btn-primary text-uppercase">Create ATS Template</a>
-      <% } %>
-      
-      <% if (resumes[index].type == 'latte') { %>
-        <a href="/resume?type=latte">
-          <img src="/images/latte template.jpg" alt="Latte Template" />
-        </a>
-      <% } else { %>
-        <a href="/resume?type=latte" class="btn btn-primary text-uppercase">Create Latte Template</a>
-      <% } %>
-      
-      <% if (resumes[index].type == 'brown') { %>
-        <a href="/resume?type=brown">
-          <img src="/images/cv template 2.png" alt="Brown Template" />
-        </a>
-      <% } else { %>
-        <a href="/resume?type=brown" class="btn btn-primary text-uppercase">Create Brown Template</a>
-      <% } %>
+      <div class="previous_templates">
+  <% 
+    // Initialize variables to track if a template exists
+    let atsExists = false;
+    let latteExists = false;
+    let brownExists = false;
+  
+    for (let index = 0; index < resumes.length; index++) { 
+      if (resumes[index].type === 'ats') { 
+        atsExists = true; 
+  %>
+      <a href="/resume?type=ats">
+        <img src="/images/ATS template.png" alt="ATS Template" />
+      </a>
+  <% 
+      } else if (resumes[index].type === 'latte') { 
+        latteExists = true; 
+  %>
+      <a href="/resume?type=latte">
+        <img src="/images/latte template.jpg" alt="Latte Template" />
+      </a>
+  <% 
+      } else if (resumes[index].type === 'brown') { 
+        brownExists = true; 
+  %>
+      <a href="/resume?type=brown">
+        <img src="/images/cv template 2.png" alt="Brown Template" />
+      </a>
+  <% 
+      } 
+    } // end of for loop
+  %>
 
-    <% } %>
-  </div>
+  <!-- Show "Create" links if the template doesn't exist -->
+  <% if (!atsExists) { %>
+    <a href="/resume?type=ats" class="btn btn-primary text-uppercase">Create ATS Template</a>
+  <% } %>
 
-<% } else { %>
-   <div style="display: flex; align-items: center; justify-content: center; gap: 10px;"> <a href="/resume?type=latte" class="btn btn-primary text-uppercase">Create Latte Template</a>
+  <% if (!latteExists) { %>
+    <a href="/resume?type=latte" class="btn btn-primary text-uppercase">Create Latte Template</a>
+  <% } %>
+
+  <% if (!brownExists) { %>
     <a href="/resume?type=brown" class="btn btn-primary text-uppercase">Create Brown Template</a>
-       <a href="/resume?type=ats" class="btn btn-primary text-uppercase">Create Ats Template</a></div>
+  <% } %>
+</div>
 
-    <% } %>
- 
 
-    </div>
   </div>
 </main>
 <%- include('./shared/footer.ejs') %>
