@@ -69,7 +69,14 @@
 
     <% } %>
   </div>
-<% } %>
+
+<% } else { %>
+   <div style="display: flex; align-items: center; justify-content: center; gap: 10px;"> <a href="/resume?type=latte" class="btn btn-primary text-uppercase">Create Latte Template</a>
+    <a href="/resume?type=brown" class="btn btn-primary text-uppercase">Create Brown Template</a>
+       <a href="/resume?type=ats" class="btn btn-primary text-uppercase">Create Ats Template</a></div>
+
+    <% } %>
+ 
 
     </div>
   </div>
