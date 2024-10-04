@@ -17,7 +17,7 @@ export const mailBody = (htmlMessage) => {
           <p style="font-size: 24px; font-weight: bold; color: #333;">${htmlMessage}</p>
         </div>
         <p style="font-size: 16px;">
-          Please enter this OTP within the next 10 minutes to verify your identity. If you did not request this, please ignore this email or contact our support team.
+          Please enter this OTP within the next 60 minutes to verify your identity. If you did not request this, please ignore this email or contact our support team.
         </p>
       </div>
 
