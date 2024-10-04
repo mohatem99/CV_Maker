@@ -30,6 +30,7 @@ export const handleForgetPassword = async (req, res) => {
       req.session.otp = undefined;
       req.session.email = undefined; // Save email in session
       req.session.otpExpires = undefined;
+      return redirect("/forgot-password");
     }
     res.redirect("/verfiy-otp");
   } catch (err) {
